@@ -4,7 +4,7 @@ orbs:
   node: circleci/node@4.1.0
   # different jobs are calles later in the workflows sections
 jobs:
-  build:
+  Install:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
@@ -18,3 +18,27 @@ jobs:
       - run:
           name: Backend Installation
           command: npm run backend:install
+  Build:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - node/install
+      - checkout
+      - run:
+          name: Install server Dependencies
+          command: |
+            cd reactnd-contacts-server
+            npm run build
+      - run:
+          name: Install UI Dependencies
+          command: |
+            cd ..
+            cd reactnd-contacts-complete
+            npm run build
+workflows:
+  Main_Workflow:
+    jobs:
+      - Install
+      - Build:
+          requires:
+            - Install
