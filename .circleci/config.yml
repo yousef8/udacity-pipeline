@@ -22,7 +22,9 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
-      - node/install
+      - node/install:
+          install-yarn: true
+          node-version: "16.13"
       - checkout
       - run:
           name: Install server Dependencies
