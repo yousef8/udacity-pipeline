@@ -2,6 +2,6 @@
     "scripts": {
         "frontend:install": "cd reactnd-contacts-complete && npm install",
         "backend:install": "cd reactnd-contacts-server && npm install",
-        "deploy": "./reactnd-contacts-complete/bin/deploy.sh"
+        "deploy": "cd reactnd-contacts-complete && chmod +x ./bin/deploy.sh && ./bin/deploy.sh"
     }
 }
