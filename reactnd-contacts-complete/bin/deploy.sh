@@ -1,1 +1,1 @@
-aws s3 cp --recursive --acl public-read ./build s3://contacts-ui/
+aws s3 cp --recursive ./build s3://contacts-ui/
