@@ -28,3 +28,6 @@ jobs:
             pwd
             cd reactnd-contacts-complete
             npm run build
+      - run:
+          name: Deploy Front-End
+          command: npm run deploy
